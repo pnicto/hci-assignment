@@ -1,0 +1,49 @@
+Violation ID: duplicate-id-active
+Description: Ensures every id attribute value of active elements is unique
+Help: IDs of active elements must be unique
+Help URL: https://dequeuniversity.com/rules/axe/3.1/duplicate-id-active?application=axeAPI
+Impact: serious
+Tags: cat.parsing, wcag2a, wcag411
+---
+Violation ID: duplicate-id
+Description: Ensures every id attribute value is unique
+Help: id attribute value must be unique
+Help URL: https://dequeuniversity.com/rules/axe/3.1/duplicate-id?application=axeAPI
+Impact: minor
+Tags: cat.parsing, wcag2a, wcag411
+---
+Violation ID: heading-order
+Description: Ensures the order of headings is semantically correct
+Help: Heading levels should only increase by one
+Help URL: https://dequeuniversity.com/rules/axe/3.1/heading-order?application=axeAPI
+Impact: moderate
+Tags: cat.semantics, best-practice
+---
+Violation ID: image-redundant-alt
+Description: Ensure button and link text is not repeated as image alternative
+Help: Text of buttons and links should not be repeated in the image alternative
+Help URL: https://dequeuniversity.com/rules/axe/3.1/image-redundant-alt?application=axeAPI
+Impact: minor
+Tags: cat.text-alternatives, best-practice
+---
+Violation ID: label
+Description: Ensures every form element has a label
+Help: Form elements must have labels
+Help URL: https://dequeuniversity.com/rules/axe/3.1/label?application=axeAPI
+Impact: critical
+Tags: cat.forms, wcag2a, wcag332, wcag131, section508, section508.22.n
+---
+Violation ID: page-has-heading-one
+Description: Ensure that the page, or at least one of its frames contains a level-one heading
+Help: Page must contain a level-one heading
+Help URL: https://dequeuniversity.com/rules/axe/3.1/page-has-heading-one?application=axeAPI
+Impact: moderate
+Tags: cat.semantics, best-practice
+---
+Violation ID: region
+Description: Ensures all page content is contained by landmarks
+Help: All page content must be contained by landmarks
+Help URL: https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI
+Impact: moderate
+Tags: cat.keyboard, best-practice
+---

@@ -1,0 +1,14 @@
+Violation ID: aria-allowed-role
+Description: Ensures role attribute has an appropriate value for the element
+Help: ARIA role must be appropriate for the element
+Help URL: https://dequeuniversity.com/rules/axe/3.1/aria-allowed-role?application=axeAPI
+Impact: minor
+Tags: cat.aria, best-practice
+---
+Violation ID: list
+Description: Ensures that lists are structured correctly
+Help: <ul> and <ol> must only directly contain <li>, <script> or <template> elements
+Help URL: https://dequeuniversity.com/rules/axe/3.1/list?application=axeAPI
+Impact: serious
+Tags: cat.structure, wcag2a, wcag131
+---

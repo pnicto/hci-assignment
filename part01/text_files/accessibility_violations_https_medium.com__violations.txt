@@ -1,0 +1,56 @@
+Violation ID: aria-valid-attr-value
+Description: Ensures all ARIA attributes have valid values
+Help: ARIA attributes must conform to valid values
+Help URL: https://dequeuniversity.com/rules/axe/3.1/aria-valid-attr-value?application=axeAPI
+Impact: critical
+Tags: cat.aria, wcag2a, wcag412
+---
+Violation ID: color-contrast
+Description: Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds
+Help: Elements must have sufficient color contrast
+Help URL: https://dequeuniversity.com/rules/axe/3.1/color-contrast?application=axeAPI
+Impact: serious
+Tags: cat.color, wcag2aa, wcag143
+---
+Violation ID: heading-order
+Description: Ensures the order of headings is semantically correct
+Help: Heading levels should only increase by one
+Help URL: https://dequeuniversity.com/rules/axe/3.1/heading-order?application=axeAPI
+Impact: moderate
+Tags: cat.semantics, best-practice
+---
+Violation ID: landmark-one-main
+Description: Ensures the page has only one main landmark and each iframe in the page has at most one main landmark
+Help: Page must have one main landmark
+Help URL: https://dequeuniversity.com/rules/axe/3.1/landmark-one-main?application=axeAPI
+Impact: moderate
+Tags: cat.semantics, best-practice
+---
+Violation ID: link-name
+Description: Ensures links have discernible text
+Help: Links must have discernible text
+Help URL: https://dequeuniversity.com/rules/axe/3.1/link-name?application=axeAPI
+Impact: serious
+Tags: cat.name-role-value, wcag2a, wcag412, wcag244, section508, section508.22.a
+---
+Violation ID: meta-viewport
+Description: Ensures <meta name="viewport"> does not disable text scaling and zooming
+Help: Zooming and scaling must not be disabled
+Help URL: https://dequeuniversity.com/rules/axe/3.1/meta-viewport?application=axeAPI
+Impact: critical
+Tags: cat.sensory-and-visual-cues, wcag2aa, wcag144
+---
+Violation ID: page-has-heading-one
+Description: Ensure that the page, or at least one of its frames contains a level-one heading
+Help: Page must contain a level-one heading
+Help URL: https://dequeuniversity.com/rules/axe/3.1/page-has-heading-one?application=axeAPI
+Impact: moderate
+Tags: cat.semantics, best-practice
+---
+Violation ID: region
+Description: Ensures all page content is contained by landmarks
+Help: All page content must be contained by landmarks
+Help URL: https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI
+Impact: moderate
+Tags: cat.keyboard, best-practice
+---

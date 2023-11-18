@@ -11,9 +11,10 @@ from webdriver_manager.microsoft import EdgeChromiumDriverManager
 from requests.adapters import HTTPAdapter
 
 session = requests.Session()
-adapter = HTTPAdapter(max_retries=5)
+adapter = HTTPAdapter(max_retries=3)
 session.mount("http://", adapter)
 session.mount("https://", adapter)
+
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
 }
@@ -65,17 +66,25 @@ def find_broken_links():
     broken_links = []
     print(len(links))
     i = 0
-    print(links)
+    session = requests.Session()
+    adapter = HTTPAdapter(max_retries=10)
+    session.mount("http://", adapter)
+    session.mount("https://", adapter)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+    }
     for link in links:
-        # time.sleep(1)
+        time.sleep(1)
         i += 1
-        print(i)
         href = link.get_attribute("href")
         if href and (href.startswith("http") or href.startswith("https")):
-            response = session.get(href, headers=headers, verify=False)
-            if response.status_code < 200 and response.status_code >= 400:
-                print(f"{href} is broken {response.status_code}")
-                broken_links.append((href, response.status_code))
+            try:
+                response = session.head(href, headers=headers, verify=False)
+                if response.status_code < 200 and response.status_code >= 400:
+                    print(f"{href} is broken {response.status_code}")
+                    broken_links.append((href, response.status_code))
+            except Exception as e:
+                broken_links.append((href, e))
 
     print(f"Out of {len(links)} links, {len(broken_links)} are broken")
 
@@ -105,18 +114,25 @@ def check_lang_switch(l10n_urls: list):
             print("Language switch is reflecting")
 
 
-def test_usability():
-    for url, l10n_urls in URLS:
+def calculate_average_load_time(url: str, number_of_times: int) -> float:
+    sum = 0
+    for _ in range(0, number_of_times):
         start_time = time.time()
         driver.get(url)
-        load_time = time.time() - start_time
-        print(f"{url} took {load_time:.2f} seconds to load")
+        sum += time.time() - start_time
+
+    return sum / number_of_times
+
+
+def test_usability():
+    for url, l10n_urls in URLS:
+        load_time = calculate_average_load_time(url, 3)
+        print(f"{url} took a average of {load_time:.2f} seconds to load")
         time.sleep(10)
         skip_to_content_button_check()
         count_alt_image_tags()
         check_random_route_handle(url)
-        # Problem with sending too many requests will fix soon:tm:
-        # find_broken_links()
+        find_broken_links()
         check_lang_switch(l10n_urls)
         print()
 

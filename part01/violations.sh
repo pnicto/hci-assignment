@@ -26,5 +26,12 @@ for f in $files; do
     else
         echo "The website does not have a title description."
     fi
+
+    jq -e '.passes[] | select (.id == "meta-viewport")' json_files/$f > /dev/null
+    if [[ $? -eq 0 ]]; then
+        echo "The website does not limit text scaling and zooming."
+    else
+        echo "The website limits text scaling and zooming."
+    fi
     echo -e "\n---\n"
 done

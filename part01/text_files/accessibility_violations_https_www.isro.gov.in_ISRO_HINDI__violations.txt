@@ -2,6 +2,7 @@ Violation ID: duplicate-id-active
 Description: Ensures every id attribute value of active elements is unique
 Help: IDs of active elements must be unique
 Help URL: https://dequeuniversity.com/rules/axe/3.1/duplicate-id-active?application=axeAPI
+Why it matters: The ID attribute uniquely identifies focusable elements on a page. It does not make sense to duplicate an active ID. Duplicate active ID values break the accessibility of focusable elements including labels for forms, table header cells, etc., Screen readers and client-side scripts will skip any duplication other than the first instance. Validating HTML files help prevent and eliminate possible sources of accessibility problems, when not breaking accessibility. Those experienced with client-side scripting know that when you re-use an active ID, typically the only one that gets acted upon by the scripting is the first instance of the use of that active ID. Similarly, assistive technologies may, when referencing an active ID, only reference the first one accurately.
 Impact: serious
 Tags: cat.parsing, wcag2a, wcag411
 ---
@@ -9,6 +10,7 @@ Violation ID: duplicate-id
 Description: Ensures every id attribute value is unique
 Help: id attribute value must be unique
 Help URL: https://dequeuniversity.com/rules/axe/3.1/duplicate-id?application=axeAPI
+Why it matters: The ID attribute uniquely identifies elements on a page. It does not make sense to duplicate an ID. Duplicate ID's can break the accessibility of labels for forms, table header cells, etc., by the second instance being skipped by screen readers, or by client-side scripts. They are common markup validation errors that can eliminate possible sources of accessibility problems, when not breaking accessibility. Those experienced with client-side scripting know that when you re-use an id, typically the only one that gets acted upon by the scripting is the first instance of the use of that ID. Similarly, assistive technologies may, when referencing an id, only reference the first one accurately.
 Impact: minor
 Tags: cat.parsing, wcag2a, wcag411
 ---
@@ -16,6 +18,7 @@ Violation ID: heading-order
 Description: Ensures the order of headings is semantically correct
 Help: Heading levels should only increase by one
 Help URL: https://dequeuniversity.com/rules/axe/3.1/heading-order?application=axeAPI
+Why it matters: The underlying purpose of headers is to convey the structure of the page. For sighted users, the same purpose is achieved using different sizes of text. Text size, however, is not helpful for users of screen readers, because a screen reader identifies a header only if it is properly marked-up. When heading elements are applied correctly, the page becomes much easier to navigate for screen reader users and sighted users alike. In the same way that sighted users can glance at a page and get a sense of its contents, users of screen readers can do the same by navigating through headings. Well written and properly ordered headings can save users, especially those who use screen readers, a lot of time and frustration. The purpose of headings is to describe the structure of the webpage, not just highlight important text. They should be brief, clear, unique, and marked with h1 through h6 elements applied in hierarchical order. All of these qualities make headings valuable tools for screen reader users. Similar to the way sighted users can glance at a page and get a sense of its contents, screen reader users can navigate through headings. Well written and properly ordered headings can save screen reader time and frustration. In addition to making the page more accessible, headings have other benefits since search engines use headings when filtering, ordering, and displaying results. Improving the accessibility of your site can also have the effect of making your page more findable.
 Impact: moderate
 Tags: cat.semantics, best-practice
 ---
@@ -23,6 +26,7 @@ Violation ID: image-redundant-alt
 Description: Ensure button and link text is not repeated as image alternative
 Help: Text of buttons and links should not be repeated in the image alternative
 Help URL: https://dequeuniversity.com/rules/axe/3.1/image-redundant-alt?application=axeAPI
+Why it matters: It is unnecessary and potentially confusing to have alternative text for a link or image to be repeated in text adjacent to the link or image since it would be read twice by a screen reader. Since image buttons use alt attributes for labels, the labels must not duplicate the text next to the button. Duplicated alternative text for an image or link in the text adjacent to that image or link results in screen readers announcing the text to the user twice.
 Impact: minor
 Tags: cat.text-alternatives, best-practice
 ---
@@ -30,6 +34,7 @@ Violation ID: label
 Description: Ensures every form element has a label
 Help: Form elements must have labels
 Help URL: https://dequeuniversity.com/rules/axe/3.1/label?application=axeAPI
+Why it matters: Effective form labels are required to make forms accessible. The purpose of form elements such as checkboxes, radio buttons, input fields, etcetera, is often apparent to sighted users, even if the form element is not programmatically labeled. Screen readers users require useful form labels to identify form fields. Adding a label to all form elements eliminates ambiguity and contributes to a more accessible product. When labels for form elements are absent, screen reader users do not know the input data expectations. Screen readers cannot programmatically determine information about input objects without an established label relationship (or redundant text serving as a label). The absence of labels prevent fields from receiving focus when read by screen readers, and users with impaired motor control do not get the benefit of a larger clickable area for the control since clicking the label activates the control.
 Impact: critical
 Tags: cat.forms, wcag2a, wcag332, wcag131, section508, section508.22.n
 ---
@@ -37,6 +42,7 @@ Violation ID: page-has-heading-one
 Description: Ensure that the page, or at least one of its frames contains a level-one heading
 Help: Page must contain a level-one heading
 Help URL: https://dequeuniversity.com/rules/axe/3.1/page-has-heading-one?application=axeAPI
+Why it matters: Screen reader users can use keyboard shortcuts to navigate directly to the first h1, which, in principle, should allow them to jump directly to the main content of the web page. If there is no h1, or if the h1 appears somewhere other than at the start of the main content, screen reader users must listen to more of the web page to understand its structure, wasting valuable time. Keep in mind that blind users can't just look at a web page and immediately understand its layout the way that a visual user can. Visual users can take in much information about the page layout without having to read all of the content. Blind users don't have that luxury. Screen readers read linearly, which means listening to the entire web page unless there is some other convenient way to get a "glimpse" of the page's layout and structure. It turns out that headings are a way to do that. Screen reader users can use keyboard shortcuts to navigate through the heading structure of a document.
 Impact: moderate
 Tags: cat.semantics, best-practice
 ---
@@ -44,6 +50,7 @@ Violation ID: region
 Description: Ensures all page content is contained by landmarks
 Help: All page content must be contained by landmarks
 Help URL: https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI
+Why it matters: Navigating a web page is far simpler for screen reader users if the content splits between multiple high-level sections. Content outside of sections is difficult to find, and the content's purpose may be unclear. Historically, HTML lacked some key semantic markers such as the ability to designate sections of the page as the header, navigation, main content, and footer. Using both HTML5 elements and ARIA landmarks in the same element is considered a best practice, but the future favors using native HTML5 element regions as browser support increases.
 Impact: moderate
 Tags: cat.keyboard, best-practice
 ---

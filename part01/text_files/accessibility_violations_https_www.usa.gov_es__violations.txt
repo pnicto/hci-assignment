@@ -2,6 +2,7 @@ Violation ID: aria-allowed-role
 Description: Ensures role attribute has an appropriate value for the element
 Help: ARIA role must be appropriate for the element
 Help URL: https://dequeuniversity.com/rules/axe/3.1/aria-allowed-role?application=axeAPI
+Why it matters: Intended accessible technology behavior by a developer is not enabled when an assigned WAI-ARIA role value is invalid for the parent element. When screen readers and other assistive technologies do not know the role of each element on the web page, they are not able to interact with it intelligently, nor are they able to communicate the role to the user. When the value for a role is invalid, there is no way to communicate the element's features, properties, and methods to assistive technologies. For example, applying role="table" to a <ul> effectively hijacks the default semantics associated with the <ul> element in a way that screenreaders do not expect resulting in unexpected behavior.
 Impact: minor
 Tags: cat.aria, best-practice
 ---
@@ -9,6 +10,7 @@ Violation ID: list
 Description: Ensures that lists are structured correctly
 Help: <ul> and <ol> must only directly contain <li>, <script> or <template> elements
 Help URL: https://dequeuniversity.com/rules/axe/3.1/list?application=axeAPI
+Why it matters: Screen readers have a specific way of announcing lists. This feature makes lists clearer to understand, but will only work if lists are properly structured. When content elements other than list items are contained within a set of list elements, screen readers cannot inform the listener that they are listening to items within the list. For a list to be valid, it must have both parent elements (a set of ul elements or a set of ol elements) and child elements (declared inside of these tags using the li element), and any other content elements are invalid. Although some non-content elements such as script, template, style, meta, link, map, area, and datalist are permitted within lists, content elements other than li are not permitted.
 Impact: serious
 Tags: cat.structure, wcag2a, wcag131
 ---

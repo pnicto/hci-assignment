@@ -2,6 +2,7 @@ Violation ID: aria-allowed-role
 Description: Ensures role attribute has an appropriate value for the element
 Help: ARIA role must be appropriate for the element
 Help URL: https://dequeuniversity.com/rules/axe/3.1/aria-allowed-role?application=axeAPI
+Why it matters: Intended accessible technology behavior by a developer is not enabled when an assigned WAI-ARIA role value is invalid for the parent element. When screen readers and other assistive technologies do not know the role of each element on the web page, they are not able to interact with it intelligently, nor are they able to communicate the role to the user. When the value for a role is invalid, there is no way to communicate the element's features, properties, and methods to assistive technologies. For example, applying role="table" to a <ul> effectively hijacks the default semantics associated with the <ul> element in a way that screenreaders do not expect resulting in unexpected behavior.
 Impact: minor
 Tags: cat.aria, best-practice
 ---
@@ -9,6 +10,7 @@ Violation ID: color-contrast
 Description: Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds
 Help: Elements must have sufficient color contrast
 Help URL: https://dequeuniversity.com/rules/axe/3.1/color-contrast?application=axeAPI
+Why it matters: Some people with low vision experience low contrast, meaning that there aren't very many bright or dark areas. Everything tends to appear about the same brightness, which makes it hard to distinguish outlines, borders, edges, and details. Text that is too close in luminance (brightness) to the background can be hard to read. There are nearly three times more individuals with low vision than those with total blindness. One in twelve people cannot see the average full spectrum of colors - about 8% of men and 0.4% of women in the US. A person with low vision or color blindness is unable to distinguish text against a background without sufficient contrast. Color transparency and opacity is taken into account in the background. Color transparency and opacity in the foreground is more difficult to detect and account for due to: 1:1 colors in foreground and background. CSS background gradients. Background colors in CSS pseudo-elements. Background colors created with CSS borders. Overlap by another element in the foreground - this sometimes comes up with tricky positioning. Elements moved outside the viewport via CSS.
 Impact: serious
 Tags: cat.color, wcag2aa, wcag143
 ---
@@ -16,6 +18,7 @@ Violation ID: empty-heading
 Description: Ensures headings have discernible text
 Help: Headings must not be empty
 Help URL: https://dequeuniversity.com/rules/axe/3.1/empty-heading?application=axeAPI
+Why it matters: Screen readers alert users to the presence of a heading tag. If the heading is empty or the text cannot be accessed, this could either confuse users or even prevent them from accessing information on the page's structure. If the text inside a heading cannot be accessed by a screen reader, users of this technology will not be able to hear the contents of the heading. Since headings relay the structure of a webpage, it's crucial that users of screen readers are able to access the contents. Applying heading markup (<h1> through ><h6>) is a quick way to make text stand out, however, using it for anything other than headings will make navigating a web page more confusing for users of assistive technology. In addition to making the page more accessible, headings have other benefits, since search engines use headings when filtering, ordering, and displaying results. Improving the accessibility of your site can also have the effect of making your page more findable. In the same way that sighted users can glance at a page and get a sense of its contents, users of screen readers can do the same by navigating through headings. Well written and properly ordered headings can save users, especially those who use screen readers, a lot of time and frustration.
 Impact: minor
 Tags: cat.name-role-value, best-practice
 ---
@@ -23,6 +26,7 @@ Violation ID: heading-order
 Description: Ensures the order of headings is semantically correct
 Help: Heading levels should only increase by one
 Help URL: https://dequeuniversity.com/rules/axe/3.1/heading-order?application=axeAPI
+Why it matters: The underlying purpose of headers is to convey the structure of the page. For sighted users, the same purpose is achieved using different sizes of text. Text size, however, is not helpful for users of screen readers, because a screen reader identifies a header only if it is properly marked-up. When heading elements are applied correctly, the page becomes much easier to navigate for screen reader users and sighted users alike. In the same way that sighted users can glance at a page and get a sense of its contents, users of screen readers can do the same by navigating through headings. Well written and properly ordered headings can save users, especially those who use screen readers, a lot of time and frustration. The purpose of headings is to describe the structure of the webpage, not just highlight important text. They should be brief, clear, unique, and marked with h1 through h6 elements applied in hierarchical order. All of these qualities make headings valuable tools for screen reader users. Similar to the way sighted users can glance at a page and get a sense of its contents, screen reader users can navigate through headings. Well written and properly ordered headings can save screen reader time and frustration. In addition to making the page more accessible, headings have other benefits since search engines use headings when filtering, ordering, and displaying results. Improving the accessibility of your site can also have the effect of making your page more findable.
 Impact: moderate
 Tags: cat.semantics, best-practice
 ---
@@ -30,6 +34,7 @@ Violation ID: image-redundant-alt
 Description: Ensure button and link text is not repeated as image alternative
 Help: Text of buttons and links should not be repeated in the image alternative
 Help URL: https://dequeuniversity.com/rules/axe/3.1/image-redundant-alt?application=axeAPI
+Why it matters: It is unnecessary and potentially confusing to have alternative text for a link or image to be repeated in text adjacent to the link or image since it would be read twice by a screen reader. Since image buttons use alt attributes for labels, the labels must not duplicate the text next to the button. Duplicated alternative text for an image or link in the text adjacent to that image or link results in screen readers announcing the text to the user twice.
 Impact: minor
 Tags: cat.text-alternatives, best-practice
 ---
@@ -37,6 +42,7 @@ Violation ID: landmark-one-main
 Description: Ensures the page has only one main landmark and each iframe in the page has at most one main landmark
 Help: Page must have one main landmark
 Help URL: https://dequeuniversity.com/rules/axe/3.1/landmark-one-main?application=axeAPI
+Why it matters: Navigating a web page is far simpler for screen reader users if all of the content splits between one or more high-level sections. Content outside of these sections is difficult to find, and its purpose may be unclear. HTML has historically lacked some key semantic markers, such as the ability to designate sections of the page as the header, navigation, main content, and footer. Using both HTML5 elements and ARIA landmarks in the same element is considered a best practice, but the future will favor HTML regions as browser support increases.
 Impact: moderate
 Tags: cat.semantics, best-practice
 ---
@@ -44,6 +50,7 @@ Violation ID: meta-viewport
 Description: Ensures <meta name="viewport"> does not disable text scaling and zooming
 Help: Zooming and scaling must not be disabled
 Help URL: https://dequeuniversity.com/rules/axe/3.1/meta-viewport?application=axeAPI
+Why it matters: The user-scalable="no" parameter inside the content attribute of <meta name="viewport"> element disables zooming on a page. The maximum-scale parameter limits the amount the user can zoom. This is problematic for people with low vision who rely on screen magnifiers to properly see the contents of a web page. Users with partial vision and low vision often choose to enlarge the fonts on their browser to make text on the web easier to read. The browser's viewport focus is everything visible in the browser window at a given moment. Maximizing the browser to full size on a high-resolution monitor creates a large the viewport focus area and may include the entire web page. If the browser window is small, the viewport focus area only includes a small part of the web page. The browser's viewport focus does not affect the programmatic focus. Users can scroll up and down the web page, but the programmatic focus does not follow the viewport. The Web Content Accessibility Guidelines calls for developers to design pages so that they support resize up to 200%. Ensures that the user-scalable="no" parameter is not present in the <meta name="viewport"> element and the maximum-scale parameter is not less than 2.
 Impact: critical
 Tags: cat.sensory-and-visual-cues, wcag2aa, wcag144
 ---
@@ -51,6 +58,7 @@ Violation ID: region
 Description: Ensures all page content is contained by landmarks
 Help: All page content must be contained by landmarks
 Help URL: https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI
+Why it matters: Navigating a web page is far simpler for screen reader users if the content splits between multiple high-level sections. Content outside of sections is difficult to find, and the content's purpose may be unclear. Historically, HTML lacked some key semantic markers such as the ability to designate sections of the page as the header, navigation, main content, and footer. Using both HTML5 elements and ARIA landmarks in the same element is considered a best practice, but the future favors using native HTML5 element regions as browser support increases.
 Impact: moderate
 Tags: cat.keyboard, best-practice
 ---

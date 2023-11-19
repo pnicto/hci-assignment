@@ -2,6 +2,7 @@ Violation ID: aria-allowed-role
 Description: Ensures role attribute has an appropriate value for the element
 Help: ARIA role must be appropriate for the element
 Help URL: https://dequeuniversity.com/rules/axe/3.1/aria-allowed-role?application=axeAPI
+Why it matters: Intended accessible technology behavior by a developer is not enabled when an assigned WAI-ARIA role value is invalid for the parent element. When screen readers and other assistive technologies do not know the role of each element on the web page, they are not able to interact with it intelligently, nor are they able to communicate the role to the user. When the value for a role is invalid, there is no way to communicate the element's features, properties, and methods to assistive technologies. For example, applying role="table" to a <ul> effectively hijacks the default semantics associated with the <ul> element in a way that screenreaders do not expect resulting in unexpected behavior.
 Impact: minor
 Tags: cat.aria, best-practice
 ---
@@ -9,6 +10,7 @@ Violation ID: button-name
 Description: Ensures buttons have discernible text
 Help: Buttons must have discernible text
 Help URL: https://dequeuniversity.com/rules/axe/3.1/button-name?application=axeAPI
+Why it matters: Screen reader users are not able to discern the purpose of elements with role="link", role="button", or role="menuitem" that do not have an accessible name.
 Impact: critical
 Tags: cat.name-role-value, wcag2a, wcag412, section508, section508.22.a
 ---
@@ -16,6 +18,7 @@ Violation ID: color-contrast
 Description: Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds
 Help: Elements must have sufficient color contrast
 Help URL: https://dequeuniversity.com/rules/axe/3.1/color-contrast?application=axeAPI
+Why it matters: Some people with low vision experience low contrast, meaning that there aren't very many bright or dark areas. Everything tends to appear about the same brightness, which makes it hard to distinguish outlines, borders, edges, and details. Text that is too close in luminance (brightness) to the background can be hard to read. There are nearly three times more individuals with low vision than those with total blindness. One in twelve people cannot see the average full spectrum of colors - about 8% of men and 0.4% of women in the US. A person with low vision or color blindness is unable to distinguish text against a background without sufficient contrast. Color transparency and opacity is taken into account in the background. Color transparency and opacity in the foreground is more difficult to detect and account for due to: 1:1 colors in foreground and background. CSS background gradients. Background colors in CSS pseudo-elements. Background colors created with CSS borders. Overlap by another element in the foreground - this sometimes comes up with tricky positioning. Elements moved outside the viewport via CSS.
 Impact: serious
 Tags: cat.color, wcag2aa, wcag143
 ---
@@ -23,6 +26,7 @@ Violation ID: duplicate-id
 Description: Ensures every id attribute value is unique
 Help: id attribute value must be unique
 Help URL: https://dequeuniversity.com/rules/axe/3.1/duplicate-id?application=axeAPI
+Why it matters: The ID attribute uniquely identifies elements on a page. It does not make sense to duplicate an ID. Duplicate ID's can break the accessibility of labels for forms, table header cells, etc., by the second instance being skipped by screen readers, or by client-side scripts. They are common markup validation errors that can eliminate possible sources of accessibility problems, when not breaking accessibility. Those experienced with client-side scripting know that when you re-use an id, typically the only one that gets acted upon by the scripting is the first instance of the use of that ID. Similarly, assistive technologies may, when referencing an id, only reference the first one accurately.
 Impact: minor
 Tags: cat.parsing, wcag2a, wcag411
 ---
@@ -30,6 +34,7 @@ Violation ID: empty-heading
 Description: Ensures headings have discernible text
 Help: Headings must not be empty
 Help URL: https://dequeuniversity.com/rules/axe/3.1/empty-heading?application=axeAPI
+Why it matters: Screen readers alert users to the presence of a heading tag. If the heading is empty or the text cannot be accessed, this could either confuse users or even prevent them from accessing information on the page's structure. If the text inside a heading cannot be accessed by a screen reader, users of this technology will not be able to hear the contents of the heading. Since headings relay the structure of a webpage, it's crucial that users of screen readers are able to access the contents. Applying heading markup (<h1> through ><h6>) is a quick way to make text stand out, however, using it for anything other than headings will make navigating a web page more confusing for users of assistive technology. In addition to making the page more accessible, headings have other benefits, since search engines use headings when filtering, ordering, and displaying results. Improving the accessibility of your site can also have the effect of making your page more findable. In the same way that sighted users can glance at a page and get a sense of its contents, users of screen readers can do the same by navigating through headings. Well written and properly ordered headings can save users, especially those who use screen readers, a lot of time and frustration.
 Impact: minor
 Tags: cat.name-role-value, best-practice
 ---
@@ -37,6 +42,7 @@ Violation ID: heading-order
 Description: Ensures the order of headings is semantically correct
 Help: Heading levels should only increase by one
 Help URL: https://dequeuniversity.com/rules/axe/3.1/heading-order?application=axeAPI
+Why it matters: The underlying purpose of headers is to convey the structure of the page. For sighted users, the same purpose is achieved using different sizes of text. Text size, however, is not helpful for users of screen readers, because a screen reader identifies a header only if it is properly marked-up. When heading elements are applied correctly, the page becomes much easier to navigate for screen reader users and sighted users alike. In the same way that sighted users can glance at a page and get a sense of its contents, users of screen readers can do the same by navigating through headings. Well written and properly ordered headings can save users, especially those who use screen readers, a lot of time and frustration. The purpose of headings is to describe the structure of the webpage, not just highlight important text. They should be brief, clear, unique, and marked with h1 through h6 elements applied in hierarchical order. All of these qualities make headings valuable tools for screen reader users. Similar to the way sighted users can glance at a page and get a sense of its contents, screen reader users can navigate through headings. Well written and properly ordered headings can save screen reader time and frustration. In addition to making the page more accessible, headings have other benefits since search engines use headings when filtering, ordering, and displaying results. Improving the accessibility of your site can also have the effect of making your page more findable.
 Impact: moderate
 Tags: cat.semantics, best-practice
 ---
@@ -44,6 +50,7 @@ Violation ID: image-alt
 Description: Ensures <img> elements have alternate text or a role of none or presentation
 Help: Images must have alternate text
 Help URL: https://dequeuniversity.com/rules/axe/3.1/image-alt?application=axeAPI
+Why it matters: Screen readers have no way of translating an image into words that gets read to the user, even if the image only consists of text. As a result, it's necessary for images to have short, descriptive alt text so screen reader users clearly understand the image's contents and purpose. If you can't see, all types of visual information, such as images, are completely useless unless a digital text alternative is provided so that screen readers can convert that text into either sound or braille. The same is true in varying degrees for people with low vision or color-blindness. When you do not provide an acceptable alternative that works for their available sensory modalities, such as making an image accessible by providing a digital text description, screen readers cannot convert it into speech or braille to make it available by sound or touch.
 Impact: critical
 Tags: cat.text-alternatives, wcag2a, wcag111, section508, section508.22.a
 ---
@@ -51,6 +58,7 @@ Violation ID: label
 Description: Ensures every form element has a label
 Help: Form elements must have labels
 Help URL: https://dequeuniversity.com/rules/axe/3.1/label?application=axeAPI
+Why it matters: Effective form labels are required to make forms accessible. The purpose of form elements such as checkboxes, radio buttons, input fields, etcetera, is often apparent to sighted users, even if the form element is not programmatically labeled. Screen readers users require useful form labels to identify form fields. Adding a label to all form elements eliminates ambiguity and contributes to a more accessible product. When labels for form elements are absent, screen reader users do not know the input data expectations. Screen readers cannot programmatically determine information about input objects without an established label relationship (or redundant text serving as a label). The absence of labels prevent fields from receiving focus when read by screen readers, and users with impaired motor control do not get the benefit of a larger clickable area for the control since clicking the label activates the control.
 Impact: critical
 Tags: cat.forms, wcag2a, wcag332, wcag131, section508, section508.22.n
 ---
@@ -58,6 +66,7 @@ Violation ID: landmark-one-main
 Description: Ensures the page has only one main landmark and each iframe in the page has at most one main landmark
 Help: Page must have one main landmark
 Help URL: https://dequeuniversity.com/rules/axe/3.1/landmark-one-main?application=axeAPI
+Why it matters: Navigating a web page is far simpler for screen reader users if all of the content splits between one or more high-level sections. Content outside of these sections is difficult to find, and its purpose may be unclear. HTML has historically lacked some key semantic markers, such as the ability to designate sections of the page as the header, navigation, main content, and footer. Using both HTML5 elements and ARIA landmarks in the same element is considered a best practice, but the future will favor HTML regions as browser support increases.
 Impact: moderate
 Tags: cat.semantics, best-practice
 ---
@@ -65,6 +74,7 @@ Violation ID: link-name
 Description: Ensures links have discernible text
 Help: Links must have discernible text
 Help URL: https://dequeuniversity.com/rules/axe/3.1/link-name?application=axeAPI
+Why it matters: Inaccessible link elements pose barriers to accessibility, as they are a fundamental component of a website. Users who rely exclusively on a keyboard (and no mouse) to navigate a webpage can only click on links that can receive programmatic focus. A link that cannot receive programmatic focus is inaccessible to these users. Like sighted users, screen reader users need to know where a link is pointing. Inner link text provides this information, though it won't get used if a screen reader can't access it. Keyboard users, including visually impaired screen reader users or people who cannot use a mouse, can activate only the links and form elements that can receive programmatic focus. Any events activated exclusively by other types of focus, for example onmouseover events that depend on the mouse hover focus, are inaccessible to keyboard users. Only links and form elements receive keyboard focus by default. Modify elements that are not links or form components to receive focus by adding tabindex="0".
 Impact: serious
 Tags: cat.name-role-value, wcag2a, wcag412, wcag244, section508, section508.22.a
 ---
@@ -72,6 +82,7 @@ Violation ID: list
 Description: Ensures that lists are structured correctly
 Help: <ul> and <ol> must only directly contain <li>, <script> or <template> elements
 Help URL: https://dequeuniversity.com/rules/axe/3.1/list?application=axeAPI
+Why it matters: Screen readers have a specific way of announcing lists. This feature makes lists clearer to understand, but will only work if lists are properly structured. When content elements other than list items are contained within a set of list elements, screen readers cannot inform the listener that they are listening to items within the list. For a list to be valid, it must have both parent elements (a set of ul elements or a set of ol elements) and child elements (declared inside of these tags using the li element), and any other content elements are invalid. Although some non-content elements such as script, template, style, meta, link, map, area, and datalist are permitted within lists, content elements other than li are not permitted.
 Impact: serious
 Tags: cat.structure, wcag2a, wcag131
 ---
@@ -79,6 +90,7 @@ Violation ID: listitem
 Description: Ensures <li> elements are used semantically
 Help: <li> elements must be contained in a <ul> or <ol>
 Help URL: https://dequeuniversity.com/rules/axe/3.1/listitem?application=axeAPI
+Why it matters: For a list to be valid, it must have both parent and child elements. Parent elements can either be a set of ul tags or a set of ol tags. Child elements must be declared inside of these tags using the li tag. Screen readers notify users when they come to a list, and tell them how many items are in a list. Announcing the number of items in a list and the current list item helps listeners know what they are listening to, and what to expect as they listen to it. If you don't mark up a list using proper semantic markup in a hierarchy, list items cannot inform the listener that they are listening to a list when no parent is indicating the presence of a list and the type of list.
 Impact: serious
 Tags: cat.structure, wcag2a, wcag131
 ---
@@ -86,6 +98,7 @@ Violation ID: meta-viewport
 Description: Ensures <meta name="viewport"> does not disable text scaling and zooming
 Help: Zooming and scaling must not be disabled
 Help URL: https://dequeuniversity.com/rules/axe/3.1/meta-viewport?application=axeAPI
+Why it matters: The user-scalable="no" parameter inside the content attribute of <meta name="viewport"> element disables zooming on a page. The maximum-scale parameter limits the amount the user can zoom. This is problematic for people with low vision who rely on screen magnifiers to properly see the contents of a web page. Users with partial vision and low vision often choose to enlarge the fonts on their browser to make text on the web easier to read. The browser's viewport focus is everything visible in the browser window at a given moment. Maximizing the browser to full size on a high-resolution monitor creates a large the viewport focus area and may include the entire web page. If the browser window is small, the viewport focus area only includes a small part of the web page. The browser's viewport focus does not affect the programmatic focus. Users can scroll up and down the web page, but the programmatic focus does not follow the viewport. The Web Content Accessibility Guidelines calls for developers to design pages so that they support resize up to 200%. Ensures that the user-scalable="no" parameter is not present in the <meta name="viewport"> element and the maximum-scale parameter is not less than 2.
 Impact: critical
 Tags: cat.sensory-and-visual-cues, wcag2aa, wcag144
 ---
@@ -93,6 +106,7 @@ Violation ID: region
 Description: Ensures all page content is contained by landmarks
 Help: All page content must be contained by landmarks
 Help URL: https://dequeuniversity.com/rules/axe/3.1/region?application=axeAPI
+Why it matters: Navigating a web page is far simpler for screen reader users if the content splits between multiple high-level sections. Content outside of sections is difficult to find, and the content's purpose may be unclear. Historically, HTML lacked some key semantic markers such as the ability to designate sections of the page as the header, navigation, main content, and footer. Using both HTML5 elements and ARIA landmarks in the same element is considered a best practice, but the future favors using native HTML5 element regions as browser support increases.
 Impact: moderate
 Tags: cat.keyboard, best-practice
 ---

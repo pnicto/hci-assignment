@@ -3,6 +3,8 @@ import glob
 import json
 from selenium import webdriver
 from axe_selenium_python import Axe
+from bs4 import BeautifulSoup
+import requests
 
 
 def test_accessibility(urls):
@@ -51,14 +53,25 @@ def write_violations_to_file():
 
         # Extract the violations
         violations = data.get("violations", [])
-
         # Prepare the text to be written to the file
         text = ""
         for violation in violations:
+            # Scrape whyitmatters from the deque website
+            response = requests.get(violation["helpUrl"])
+            soup = BeautifulSoup(response.text, "html.parser")
+            sections = soup.find_all("section", class_="whyImportant")
+            # get the div within the section called howToFixData
+            how_to_fix_data = sections[0].find("div", class_="howToFixData")
+            # get the text within the div and format it
+            why_it_matters = how_to_fix_data.text.strip().replace("\n", " ")
+            # remove the extra spaces
+            why_it_matters = " ".join(why_it_matters.split())
+            # print(why_it_matters)
             text += f"Violation ID: {violation['id']}\n"
             text += f"Description: {violation['description']}\n"
             text += f"Help: {violation['help']}\n"
             text += f"Help URL: {violation['helpUrl']}\n"
+            text += f"Why it matters: {why_it_matters}\n"
             text += f"Impact: {violation['impact']}\n"
             text += f"Tags: {', '.join(violation['tags'])}\n"
             text += "---\n"
@@ -86,5 +99,5 @@ urls = [
     "https://nrega.nic.in/MGNREGA_new/NREGA_home_hi.aspx",  # "https://nrega.nic.in/Nregahome/MGNREGA_new/Nrega_home.aspx" is broken
     "https://www.bits-pilani.ac.in/",
 ]
-test_accessibility(urls)
+# test_accessibility(urls)
 write_violations_to_file()

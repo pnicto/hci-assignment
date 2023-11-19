@@ -20,5 +20,11 @@ for f in $files; do
     echo $insuff
     echo -n "The percentage of elements with sufficient colour contrast is "
     echo -e "$suff\t$insuff" | awk '{print 100 * $1/($1 + $2) "%"}'
+    jq '.passes[] | .description, .id' json_files/$f | grep -q "document-title"
+    if [[ $? -eq 0 ]]; then
+        echo "The website has a title description."
+    else
+        echo "The website does not have a title description."
+    fi
     echo -e "\n---\n"
 done

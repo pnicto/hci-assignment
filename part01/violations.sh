@@ -2,6 +2,8 @@
 
 files=$(ls json_files)
 
+jq '.passes[], .violations[] | .description' json_files/* | sort | uniq
+
 for f in $files; do
     #    echo "$f: "
     # jq ".violations | length" "json_files/$f"
@@ -11,8 +13,12 @@ for f in $files; do
     #    jq '.violations[] | select (.impact != "minor") | .nodes[] | .html, .none[].message, .any[].message, .all[].message, .target[]' "json_files/$f"
     #    jq -r '.passes[], .violations[], .incomplete[] | .nodes[] | select (.any[].id == "color-contrast") | select (.any[].message | match("sufficient")?) | .html, .target[], .any[].message' json_files/$f
     echo -n "Number of elements in $f with sufficient colour contrast: "
-    jq -r '.passes[], .violations[], .incomplete[] | .nodes[] | select (.any[].id == "color-contrast") | select (.any[].message | match("sufficient")?) | .html, .target[], .any[].message' json_files/$f | grep "has sufficient" | wc -l
+    suff=`jq -r '.passes[], .violations[], .incomplete[] | .nodes[] | select (.any[].id == "color-contrast") | select (.any[].message | match("sufficient")?) | .html, .target[], .any[].message' json_files/$f | grep "has sufficient" | wc -l`
+    echo $suff
     echo -n "Number of elements in $f with insufficient colour contrast: "
-    jq -r '.passes[], .violations[], .incomplete[] | .nodes[] | select (.any[].id == "color-contrast") | select (.any[].message | match("sufficient")?) | .html, .target[], .any[].message' json_files/$f | grep "has insufficient" | wc -l
+    insuff=`jq -r '.passes[], .violations[], .incomplete[] | .nodes[] | select (.any[].id == "color-contrast") | select (.any[].message | match("sufficient")?) | .html, .target[], .any[].message' json_files/$f | grep "has insufficient" | wc -l`
+    echo $insuff
+    echo -n "The percentage of elements with sufficient colour contrast is "
+    echo -e "$suff\t$insuff" | awk '{print 100 * $1/($1 + $2) "%"}'
     echo -e "\n---\n"
 done

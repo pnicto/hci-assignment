@@ -1,0 +1,7 @@
+Ishan Chhangani, 2020A7PS0230H, For part 3 conducted user testing and evaluated sus score
+Anubhab Khanra, 2020A7PS2144H, For part 1 created an axe script to find accessibility violations and write them to a file, along with scraping additional information and filling the pdf about the accessibility violations
+Pranav Dinesh Sharma, 2021A7PS2818H, Wrote shell scripts to extract information from the json files created by the axe script for parts I/II
+Anurav Garg, 2021A7PS2782H, For parts 1 and 2, created tasks for users, helped decide metrics, final score evaluation
+Pritam Basu, 2021A7PS2175H, For part 3 conducted user testing and evaluated sus score
+Dharanikanth Reddy, 2021A7PS0264H, For parts 1 and 2 came up with methods to evaluate websites automatically and for part 2 conducted the user testing and recorded the values
+

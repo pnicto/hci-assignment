@@ -25,18 +25,18 @@ urllib3.disable_warnings()
 os.environ["WDM_LOCAL"] = "1"
 
 URLS = [
+    (
+        "https://nrega.nic.in/MGNREGA_new/Nrega_home.aspx",
+        ["https://nrega.nic.in/MGNREGA_new/NREGA_home_hi.aspx"],
+    ),  # "https://nrega.nic.in/Nregahome/MGNREGA_new/Nrega_home.aspx" is broken
     ("https://www.usa.gov/", ["https://www.usa.gov/es/"]),
+    ("https://www.bits-pilani.ac.in/", []),
     ("https://www.isro.gov.in/", ["https://www.isro.gov.in/ISRO_HINDI/"]),
     ("https://medium.com/", []),
     (
         "https://www.education.gov.in/",
         ["https://www.education.gov.in/hi"],
     ),  # "https://www.education.gov.in/en" is broken
-    (
-        "https://nrega.nic.in/MGNREGA_new/Nrega_home.aspx",
-        ["https://nrega.nic.in/MGNREGA_new/NREGA_home_hi.aspx"],
-    ),  # "https://nrega.nic.in/Nregahome/MGNREGA_new/Nrega_home.aspx" is broken
-    ("https://www.bits-pilani.ac.in/", []),
 ]
 SKIP_TO_CONTENT_XPATH = '//*[@title="Skip to main content"]'
 RANDOM_ROUTE_TEXT = "t"

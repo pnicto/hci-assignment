@@ -1,41 +1,41 @@
-https://www.usa.gov/ took 2.74 seconds to load
-No skip to content button
-Out of 32 images, 27 have alt text
-92
-Out of 92 links, 0 are broken
-Language switch is reflecting
-
-https://www.isro.gov.in/ took 1.31 seconds to load
-Skip to main content button found
-Out of 81 images, 53 have alt text
-280
-Out of 280 links, 1 are broken
-Language switch is reflecting
-
-https://medium.com/ took 1.61 seconds to load
-No skip to content button
-Out of 28 images, 28 have alt text
-129
-Out of 129 links, 0 are broken
-
-https://www.education.gov.in/ took 5.79 seconds to load
-Skip to main content button found
-Out of 46 images, 45 have alt text
-365
-Out of 365 links, 6 are broken
-Language switch is reflecting
-
-https://nrega.nic.in/MGNREGA_new/Nrega_home.aspx took 8.45 seconds to load
+https://nrega.nic.in/MGNREGA_new/Nrega_home.aspx took a average of 2.28 seconds to load
 Skip to main content button found
 Out of 75 images, 68 have alt text
 206
 Out of 206 links, 2 are broken
 Language switch not reflecting for screen readers
 
-https://www.bits-pilani.ac.in/ took 3.08 seconds to load
+https://www.usa.gov/ took a average of 1.51 seconds to load
+No skip to content button
+Out of 32 images, 27 have alt text
+92
+Out of 92 links, 0 are broken
+Language switch is reflecting
+
+https://www.bits-pilani.ac.in/ took a average of 1.84 seconds to load
 No skip to content button
 Out of 60 images, 24 have alt text
 Does not handle not found errors well
 537
 Out of 537 links, 0 are broken
+
+https://www.isro.gov.in/ took a average of 0.55 seconds to load
+Skip to main content button found
+Out of 81 images, 53 have alt text
+280
+Out of 280 links, 1 are broken
+Language switch is reflecting
+
+https://medium.com/ took a average of 0.72 seconds to load
+No skip to content button
+Out of 48 images, 48 have alt text
+194
+Out of 194 links, 0 are broken
+
+https://www.education.gov.in/ took a average of 2.30 seconds to load
+Skip to main content button found
+Out of 46 images, 45 have alt text
+362
+Out of 362 links, 5 are broken
+Language switch is reflecting
 

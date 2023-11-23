@@ -80,7 +80,7 @@ def find_broken_links():
         if href and (href.startswith("http") or href.startswith("https")):
             try:
                 response = session.head(href, headers=headers, verify=False)
-                if response.status_code < 200 and response.status_code >= 400:
+                if response.status_code < 200 or response.status_code >= 400:
                     print(f"{href} is broken {response.status_code}")
                     broken_links.append((href, response.status_code))
             except Exception as e:
